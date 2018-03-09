@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
+var useref = require('gulp-useref');
 var uglify = require('gulp-uglify');
 var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
@@ -60,7 +61,7 @@ gulp.task('clean:dist', function() {
   return del.sync('dist');
 });
 
-gulp.task('build', [`clean`, `sass`, `useref`, `images`, `fonts`], function (){
+gulp.task('build', [`clean:dist`, `sass`, `useref`, `images`, `fonts`], function (){
   console.log('Building files');
 });
 
